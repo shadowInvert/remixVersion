@@ -1,0 +1,5 @@
+FROM nginx:stable-bullseye-perl
+
+COPY  ./nginx/nginx.conf  /etc/nginx/conf.d/nginx.conf
+COPY ./nginx/ssl/xxxxxx /etc/nginx/ssl/xxxxxx
+COPY  ./nginx/ssl/xxxxxx  /etc/nginx/ssl/xxxxxx

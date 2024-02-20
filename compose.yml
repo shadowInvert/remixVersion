@@ -1,0 +1,27 @@
+services:
+  server:
+    build:
+      context: .
+      dockerfile: Dockerfile_Server
+    container_name: #correction
+    tty: true
+    restart: unless-stopped
+    expose:
+      - 1208
+
+  nginx:
+    build:
+      context: .
+      dockerfile: Dockerfile_Nginx
+    container_name: revive-remix
+    ports:
+      - 443:443
+    environment:
+      - TZ=Asia/Tokyo
+    depends_on:
+      server:
+        condition: service_started
+    volumes:
+      - type: bind
+        source: ./nginx/log/
+        target: /var/log/nginx/
