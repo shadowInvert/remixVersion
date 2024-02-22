@@ -13,7 +13,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile_Nginx
-    container_name: revive-remix
+    container_name: #correction
     ports:
       - 443:443
     environment:
